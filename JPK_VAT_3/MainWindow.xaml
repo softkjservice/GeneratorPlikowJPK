@@ -1,0 +1,66 @@
+﻿<Window x:Class="JPK_VAT_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JPK_VAT_3"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Oprogramowanie Soft-KJ-Service"  Height="768" Width="1200">
+    <Grid>
+        <Label x:Name="lab_Generator" Content="Generator plików JPK_ VAT" HorizontalAlignment="Left" Margin="47,22,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label x:Name="lab_ZaOkres" Content="Za okres:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <DatePicker x:Name="PickerOd" HorizontalAlignment="Left" Margin="217,139,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_OdDnia" Content="od dnia  " HorizontalAlignment="Left" Margin="147,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.077" FontSize="14"/>
+        <Label x:Name="lab_DoDnia" Content="do dnia  " HorizontalAlignment="Left" Margin="370,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.077" FontSize="14"/>
+        <DatePicker x:Name="PickerDo" HorizontalAlignment="Left" Margin="440,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.343,0.542"/>
+        <Label x:Name="lab_DataWytworzeniaJpk" Content="Data wytworzenia JPK " HorizontalAlignment="Right" Margin="0,132,150,0" VerticalAlignment="Top" RenderTransformOrigin="0.842,0.692" FontSize="22"/>
+        <DatePicker x:Name="PickerDataWytworzenia" HorizontalAlignment="Right" Margin="0,139,10,0" VerticalAlignment="Top" RenderTransformOrigin="-0.52,0.667"/>
+        <Label x:Name="lab_df1" Content="Kod formularza" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_df2" Content="Nazwa systemu" HorizontalAlignment="Left" Margin="210,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_df3" Content="Wersja schematu" HorizontalAlignment="Left" Margin="410,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_df4" Content="Wariant formularz" HorizontalAlignment="Left" Margin="610,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_df5" Content="Cel złożenia" HorizontalAlignment="Left" Margin="810,176,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_df10" HorizontalAlignment="Left" Height="23" Margin="110,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" BorderBrush="#FFFFFFFF"/>
+        <TextBox x:Name="textBox_df20" HorizontalAlignment="Left" Height="23" Margin="310,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" BorderBrush="#FFFFFFFF"/>
+        <TextBox x:Name="textBox_df30" HorizontalAlignment="Left" Height="23" Margin="510,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" BorderBrush="#FFFFFFFF"/>
+        <TextBox x:Name="textBox_df40" HorizontalAlignment="Left" Height="23" Margin="715,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" BorderBrush="#FFFFFFFF"/>
+        <ComboBox x:Name="comboBox_cel" HorizontalAlignment="Left" Margin="903,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,-0.091">
+            <ComboBoxItem IsSelected="True" Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9 "/>
+        </ComboBox>
+        <Label x:Name="lab_WybierzFirme" Content="Wybierz firmę" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" FontSize="36" RenderTransformOrigin="0.456,-0.088"/>
+        <Button x:Name="butAkceptujton" Content="Akceptuj" HorizontalAlignment="Left" Margin="70,294,0,0" VerticalAlignment="Top" Width="75" Click="butAkceptujton_Click"/>
+        <Button x:Name="butZaznacz" Content="V" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="25" Click="butZaznacz_Click"/>
+        <Button x:Name="butWyczysc" Content="-" HorizontalAlignment="Left" Margin="40,294,0,0" VerticalAlignment="Top" Width="25" Click="butWyczysc_Click"/>
+        <Button x:Name="butWidok" Content="Widok baz" HorizontalAlignment="Left" Margin="150,294,0,0" VerticalAlignment="Top" Width="75" Click="butWidok_Click"/>
+        <Button x:Name="butJPK" Content="Zobacz JPK" HorizontalAlignment="Left" Margin="230,294,0,0" VerticalAlignment="Top" Width="75" Click="butJPK_Click"/>
+        <Button x:Name="butDodajXML" Content="Dodaj XML" HorizontalAlignment="Left" Margin="310,294,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.147,-0.4" Click="butDodajXML_Click" />
+        <Button x:Name="bt_ZapiszDoPliku" Content="Zapisz zmiany" HorizontalAlignment="Right" Margin="0,293,10,0" VerticalAlignment="Top" Width="75" Click="bt_ZapiszDoPliku_Click" RenderTransformOrigin="0.515,-0.534"/>
+        <DataGrid x:Name="dg_firmy"  AutoGenerateColumns="False" MinHeight="100" MinWidth="100" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" >
+
+            <DataGrid.Columns >
+                <DataGridCheckBoxColumn  Header="Wybierz" Binding="{Binding Path=Zaznacz  }"   />
+                <DataGridTextColumn Header="Nazwa skrócona" Binding="{Binding Path=KrotkaNazwa}" />
+                <DataGridTextColumn Header="Pełna nazwa firmy" Binding="{Binding Path=PelnaNazwa}" />
+                <DataGridTextColumn Header="NIP" Binding="{Binding Path=NIP}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}" />
+                <DataGridTextColumn Header="Katalog bazy danych" Binding="{Binding Path=KatalogBazy}" />
+                <DataGridTextColumn Header="Katalog plików JPK" Binding="{Binding Path=KatalogJpk}" />
+                <DataGridTextColumn Header="Żródło danych" Binding="{Binding Path=ZrodloDanych}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+    </Grid>
+</Window>
